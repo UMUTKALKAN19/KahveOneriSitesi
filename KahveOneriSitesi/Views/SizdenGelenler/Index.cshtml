@@ -1,0 +1,42 @@
+﻿@model List<KahveOneriSitesi.Data.Models.Oneri>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+
+<h1>Önerilerler</h1>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Malzeme</th>
+        <th>Tarif</th>
+        <th>Tarih</th>
+        <th>Çeşit</th>
+        <th>Resim URL</th>
+        <th>Öneren Kişi</th>
+        <th>Öneri Durum</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.OneriID</th>
+            <td>@x.OneriAd</td>
+            <td>@x.OneriMalzeme</td>
+            <td>@x.OneriTarif</td>
+            <td>@x.OneriTarih</td>
+            <td>@x.OneriTur</td>
+            <td>@x.OneriResim</td>
+            <td>@x.OnerenAdSoyad</td>
+            <td>@x.OneriDurum</td>
+            <td><a href="/SizdenGelenler/OneriDurumTrue/@x.OneriID/" class="btn btn-primary">Onay</a> <a href="/SizdenGelenler/OneriDurumFalse/@x.OneriID/" class="btn btn-danger">Red</a></td>
+            <td><a href="/Sizdengelenler/OneriGet/@x.OneriID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/SizdenGelenler/OneriEkle/" class="btn btn-primary">Yeni Öneri Ekle</a>

@@ -1,0 +1,28 @@
+﻿@model KahveOneriSitesi.Data.Models.Oneri
+@{
+    ViewData["Title"] = "OneriEkle";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+<h1>Öneri Ekle</h1>
+
+
+@using (Html.BeginForm("OneriEkle", "SizdenGelenler", FormMethod.Post))
+{
+    @Html.Label("Öneri Ad")
+    @Html.TextBoxFor(x => x.OneriAd, new { @class = "form-control" })
+    <br />
+    @Html.Label("Malzeme")
+    @Html.TextAreaFor(x => x.OneriMalzeme, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tarif")
+    @Html.TextAreaFor(x => x.OneriTarif, new { @class = "form-control" })
+    <br />
+    @Html.Label("Resim URL")
+    @Html.TextBoxFor(x => x.OneriResim, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tür")
+    @Html.TextBoxFor(x => x.OneriTur, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+}

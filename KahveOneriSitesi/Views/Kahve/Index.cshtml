@@ -1,0 +1,37 @@
+﻿@model List<KahveOneriSitesi.Data.Models.Kahve>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+<h1>Kahveler</h1>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Malzeme</th>
+        <th>Tarif</th>
+        <th>Tarih</th>
+        <th>Çeşit</th>
+        <th>Resim URL</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.KahveID</th>
+            <td>@x.KahveAd</td>
+            <td>@x.KahveMalzeme</td>
+            <td>@x.KahveTarif</td>
+            <td>@x.KahveTarih</td>
+            <td>@x.KahveTur</td>
+            <td>@x.KahveResim</td>
+            <td><a href="/Kahve/KahveSil/@x.KahveID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Kahve/KahveGet/@x.KahveID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Kahve/KahveEkle/" class="btn btn-primary">Yeni Kahve Ekle</a>

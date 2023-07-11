@@ -1,0 +1,38 @@
+﻿@model KahveOneriSitesi.Data.Models.Oneri
+@{
+    ViewData["Title"] = "OneriGet";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+<h1>Öneri Detay Sayfası</h1>
+
+@using (Html.BeginForm("OneriGuncelle", "SizdenGelenler", FormMethod.Post))
+{
+    @Html.Label("ID")
+    @Html.TextBoxFor(x => x.OneriID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Ad")
+    @Html.TextBoxFor(x => x.OneriAd, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Malzeme")
+    @Html.TextBoxFor(x => x.OneriMalzeme, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Tarif")
+    @Html.TextAreaFor(x => x.OneriTarif, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Tarih")
+    @Html.TextBoxFor(x => x.OneriTarih, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Resim")
+    @Html.TextBoxFor(x => x.OneriResim, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Tür")
+    @Html.TextBoxFor(x => x.OneriTur, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Öneren")
+    @Html.TextBoxFor(x => x.OnerenAdSoyad, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Durum")
+    @Html.TextBoxFor(x => x.OneriDurum, new { @class = "form-control" })
+    <button class="btn btn-success">Kaydet</button>
+}

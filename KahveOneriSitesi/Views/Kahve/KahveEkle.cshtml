@@ -1,0 +1,28 @@
+﻿@model KahveOneriSitesi.Data.Models.Kahve
+@{
+    ViewData["Title"] = "KahveEkle";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+<h1>KahveEkle</h1>
+<br />
+
+@using (Html.BeginForm("KahveEkle", "Kahve", FormMethod.Post))
+{
+    @Html.Label("Kahve Ad")
+    @Html.TextBoxFor(x => x.KahveAd, new { @class = "form-control" })
+    <br />
+    @Html.Label("Malzeme")
+    @Html.TextAreaFor(x => x.KahveMalzeme, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tarif")
+    @Html.TextAreaFor(x => x.KahveTarif, new { @class = "form-control" })
+    <br />
+    @Html.Label("Resim URL")
+    @Html.TextBoxFor(x => x.KahveResim, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tür")
+    @Html.TextBoxFor(x => x.KahveTur, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+}

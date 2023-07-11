@@ -1,0 +1,27 @@
+﻿@model List<KahveOneriSitesi.Data.Models.Yorum>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WebLayout.cshtml";
+}
+
+<div class="container">
+    <h1>Yorumlar</h1>
+    <hr />
+    <div class="row">
+
+        @foreach (var x in Model)
+        {
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">@x.YorumSahip</h5>
+                        <p class="card-text">@x.YorumIcerik</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<a class="btn btn-primary" style="width: 105px; height: 40px; background-color: #964B00; text-align:center; margin-left:15px" href="/YorumYap/YorumEkle/@ViewBag.id">Yorum Yap</a>
+
+

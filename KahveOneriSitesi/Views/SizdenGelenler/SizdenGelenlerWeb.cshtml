@@ -1,0 +1,139 @@
+﻿@model List<KahveOneriSitesi.Data.Models.Oneri>
+@{
+    ViewData["Title"] = "SizdenGelenlerWeb";
+    Layout = "~/Views/Shared/_WebLayout.cshtml";
+}
+
+<h1>Sizden Gelenler </h1>
+@foreach (var x in Model)
+{
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Kahve Detay Sayfası</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kIQUbT" crossorigin="anonymous">
+        <style>
+            .card-img-top {
+                height: 500px;
+                object-fit: cover;
+            }
+
+            /* body */
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 16px;
+                line-height: 1.5;
+                background-color: #f2f2f2;
+            }
+
+            /* header */
+            header {
+                background-color: #fff;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+            }
+
+                header h1 {
+                    margin: 0;
+                    font-size: 2.5rem;
+                    color: #222;
+                }
+
+            /* main */
+            main {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .coffee-details {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #fff;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+                .coffee-details img {
+                    max-width: 400px;
+                    margin-right: 20px;
+                }
+
+                .coffee-details .description {
+                    flex: 1;
+                }
+
+                    .coffee-details .description h2 {
+                        font-size: 2rem;
+                        margin-bottom: 10px;
+                    }
+
+                    .coffee-details .description p {
+                        margin-bottom: 20px;
+                    }
+
+                .coffee-details .actions {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                    .coffee-details .actions button {
+                        margin-bottom: 10px;
+                        padding: 10px 20px;
+                        font-size: 1.2rem;
+                        border: none;
+                        background-color: #fff;
+                        color: #222;
+                        cursor: pointer;
+                    }
+
+                        .coffee-details .actions button:hover {
+                            background-color: #222;
+                            color: #fff;
+                        }
+
+            .begenme-sayisi {
+                font-size: 1.2rem;
+                color: #222;
+                margin-bottom: 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row my-5">
+                <div class="col-md-8">
+                    <div class="card">
+                        <img src="@x.OneriResim" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">@x.OneriAd</h5>
+                            <p class="card-text">
+                                Malzemeler : @x.OneriMalzeme <br>
+                                Tarif : @x.OneriTarif <br />
+                                Öneren : @x.OnerenAdSoyad
+                            </p>
+                            <div>
+                                <a href="/SizdenGelenler/OneriBegen/@x.OneriID" class="btn btn-success" style="background-color:">Beğen</a>
+                            </div>
+                            <div>
+                                <a href="/SizdenGelenler/OneriBegenme/@x.OneriID" class="btn btn-danger" style="background-color:">Beğenme</a>
+                            </div>
+                            <div>Beğeni Sayısı : @x.OneriBegeni</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </body>
+</html>
+
+
+}

@@ -1,0 +1,32 @@
+﻿@model KahveOneriSitesi.Data.Models.Kahve
+@{
+    ViewData["Title"] = "KahveGet";
+    Layout = "~/Views/Shared/_BenimLayout.cshtml";
+}
+
+<h1>Kahve Detay Sayfası</h1>
+
+@using (Html.BeginForm("KahveGuncelle", "Kahve", FormMethod.Post))
+{
+    @Html.Label("ID")
+    @Html.TextBoxFor(x => x.KahveID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Ad")
+    @Html.TextBoxFor(x => x.KahveAd, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Malzeme")
+    @Html.TextBoxFor(x => x.KahveMalzeme, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Tarif")
+    @Html.TextAreaFor(x => x.KahveTarif, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Tarih")
+    @Html.TextBoxFor(x => x.KahveTarih, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Resim")
+    @Html.TextBoxFor(x => x.KahveResim, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kahve Tür")
+    @Html.TextBoxFor(x => x.KahveTur, new { @class = "form-control" })
+    <button class="btn btn-success">Kaydet</button>
+}
